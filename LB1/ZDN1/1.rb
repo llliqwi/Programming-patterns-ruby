@@ -1,2 +1,1 @@
-name = 'Тут чье-то имя'
-puts "Hello, #{name}"
+puts "Hello, world"
