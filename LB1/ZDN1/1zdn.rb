@@ -1,7 +1,7 @@
 puts "Hello, wordl"
 #комментарий
-puts "Hello,"+ ARGV[0]
-puts "Какой у вас любимый язык," + ARGV[0] + "?"
+puts "Hello,#{ARGV[0]} !"
+puts "Какой у вас любимый язык,#{ARGV[0]} ?"
 langprog = STDIN.gets.chomp
 case langprog
 when "ruby"
