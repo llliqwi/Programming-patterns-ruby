@@ -34,45 +34,42 @@ def mult(array)
   mult
 end
 
-def main
-  puts "Выбирете метод:
-    1 Минимум
-    2 Максимум
-    3 Сумма
-    4 Произведение"
-  my_method = gets.chomp
+def file(path)
+  puts "Массив из файла"
+  return File.read(path).split().map(&:to_i)
+end
 
-  puts "Откуда взять массив?
-    1 Клавиатура
-    2 Файл"
-  my_option = gets.chomp
-  my_arr = Array.new
+def klava()
+  puts "Введите массив через пробел : "
+  return STDIN.gets.chomp.split().map(&:to_i)
+end
 
-  case my_option
-  when "1"
-    puts "Пишете массив через пробел"
-    my_arr = gets.chomp.split.map(&:to_i)
-  when "2"
-    puts "Нужен адрес файла"
-    my_address = gets.chomp
-    my_str = IO.read(my_address) # C:\Users\lwwep\zxc.txt
-    my_arr = my_str.split.map(&:to_i)
+
+
+def main()
+
+  if ARGV[1] == "klava"
+    array = klava()
+  elsif ARGV[1] == "file"
+    array = file(ARGV[2])
   else
-    puts "Ошибка в выборе источника массива"
+    puts "$$$$$$$$$$$$$$$"
   end
 
-  case my_method
-  when "1"
-    puts "Минимум = #{min(my_arr)}"
-  when "2"
-    puts "Максимум = #{max(my_arr)}"
-  when "3"
-    puts "Сумма = #{sum(my_arr)}"
-  when "4"
-    puts "Произведение = #{mult(my_arr)}"
-  else
-    puts "Ошибка в выборе метода"
+  case ARGV[0]
+  when "min"
+    puts "Нахождение минимального элемента"
+    puts "Результат: #{min(array)}"
+  when "max"
+    puts "Нахождение максимального элемента"
+    puts "Результат: #{max(array)}"
+  when "sum"
+    puts "Нахождение суммы элементов"
+    puts "Результат: #{sum(array)}"
+  when "mult"
+    puts "Нахождение произведения элементов"
+    puts "Результат: #{mult(array)}"
   end
 end
 
-main
+main()
