@@ -56,7 +56,7 @@ def main()
   when "2"
     puts "Нужен адрес файла"
     my_address = gets.chomp
-    my_str = IO.read(my_address) # C:\Users\VirusTM\Desktop\Task №4\input.txt
+    my_str = IO.read(my_address) # C:\User\...
     my_arr = my_str.split.map(&:to_i)
     i=my_arr.last
     my_arr.delete_at(my_arr.size-1)
